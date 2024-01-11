@@ -1,10 +1,15 @@
-
+.card-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
 .card {
     width: 300px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
+    margin-bottom: 20px;
 }
 
 .card img {
@@ -20,5 +25,11 @@
 
 .product-description {
     font-size: 1 rem;
+    color: #555;
+}
+
+.product-material {
+    font-size: 1 rem;
+    margin: 10px 0;
     color: #555;
 }
