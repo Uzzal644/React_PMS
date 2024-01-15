@@ -2,16 +2,30 @@ import { useEffect, useState } from "react"
 import Navbar from "../../components/Navbar/Navbar"
 import "./SingleProduct.css"
 import axios from "axios"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 
 const SingleProduct = () => {
+    const navigate = useNavigate()
     const {id} = useParams()
     //store product data coming in object
     const [product, setProduct] = useState({})
+
+    //fetch a single product
     const fetchSingleProduct = async()=>{
         const response = await axios.get("https://659e6e0247ae28b0bd35d155.mockapi.io/products/"+ id)
         setProduct(response.data)
+    }
+
+    //delete product
+    const deleteProduct = async()=>{
+        //api hit to delete
+        const response = await axios.delete("https://659e6e0247ae28b0bd35d155.mockapi.io/products/"+ id)
+        if(response.status == 200){
+            navigate("/")
+        }else{
+            alert("Something went wrong, pleaase try again!")
+        }
     }
     useEffect(()=>{
         fetchSingleProduct()
@@ -25,7 +39,8 @@ const SingleProduct = () => {
                     <img src= {product.productImage} alt = "Product Image" />
                     <h2 className='product-name'>{product.productName}</h2>
                     <p className='product-description'>{product.productDescription}</p>
-                    <mark className='product-material'>{product.productMaterial}</mark>
+                    <mark className='product-material'>{product.productMaterial}</mark> <br/>
+                    <button onClick={deleteProduct}>Delete</button>
                 </div>
                 </>
 
