@@ -2,9 +2,10 @@ import { useState } from 'react'
 import './AddProduct.css'
 import axios from 'axios'
 import Navbar from '../../components/Navbar/Navbar'
-import { Navigate } from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
 
 const AddProduct = () => {
+  const Navigate = useNavigate()
     //FIRST APPROACH
     // const [productImage, setProductImage] = useState("")
     // const [productName, setProductName] = useState("")

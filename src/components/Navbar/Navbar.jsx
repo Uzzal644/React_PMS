@@ -4,7 +4,9 @@ import './Navbar.css'
 const Navbar = () => {
   return (
     <div className="navbar" id="navbar">
-        <a href="#">Home</a>
+        {/* <a href="#">Home</a>
+         */}
+         <Link to ="/">Home</Link>
         {/* <a href="/addproduct">Add product</a> */}
         <Link to ="/addproduct">Add product</Link>
 </div>
