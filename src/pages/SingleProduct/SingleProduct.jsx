@@ -41,6 +41,7 @@ const SingleProduct = () => {
                     <p className='product-description'>{product.productDescription}</p>
                     <mark className='product-material'>{product.productMaterial}</mark> <br/>
                     <button onClick={deleteProduct}>Delete</button>
+                    <button onClick={()=>navigate(`/editProduct/${product.id}`)}>Edit</button>
                 </div>
                 </>
 
