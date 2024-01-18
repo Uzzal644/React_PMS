@@ -10,11 +10,7 @@ const EditProduct = () => {
     const [product, setProduct] = useState({})
 
 
-    //fetch id of product
-    const fetchProduct= async()=>{
-        const response = await axios.get("https://659e6e0247ae28b0bd35d155.mockapi.io/products/" + id)
-        setProduct(response.data)
-    }
+    
 
     //edit product
     const handleChange= (e)=>{
@@ -29,7 +25,7 @@ const EditProduct = () => {
         e.preventDefault()
         const response = await axios.put("https://659e6e0247ae28b0bd35d155.mockapi.io/products/" + id, product)
         if(response.status == 200){
-            navigate("/")
+            navigate("/singleProduct/" + id)
         }else{
             alert("Something went wrong, try again!")
         }
@@ -37,8 +33,13 @@ const EditProduct = () => {
 
 
     useEffect(()=>{
+        //fetch id of product
+    const fetchProduct= async()=>{
+        const response = await axios.get("https://659e6e0247ae28b0bd35d155.mockapi.io/products/" + id)
+        setProduct(response.data)
+    }
         fetchProduct()
-    },[])
+    },[id])
 
   return (
     <>

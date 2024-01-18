@@ -8,14 +8,9 @@ import { useNavigate, useParams } from "react-router-dom"
 const SingleProduct = () => {
     const navigate = useNavigate()
     const {id} = useParams()
+
     //store product data coming in object
     const [product, setProduct] = useState({})
-
-    //fetch a single product
-    const fetchSingleProduct = async()=>{
-        const response = await axios.get("https://659e6e0247ae28b0bd35d155.mockapi.io/products/"+ id)
-        setProduct(response.data)
-    }
 
     //delete product
     const deleteProduct = async()=>{
@@ -24,12 +19,20 @@ const SingleProduct = () => {
         if(response.status == 200){
             navigate("/")
         }else{
-            alert("Something went wrong, pleaase try again!")
+            alert("Something went wrong, please try again!")
         }
     }
+
+
+
     useEffect(()=>{
+            //fetch a single product
+    const fetchSingleProduct = async()=>{
+        const response = await axios.get("https://659e6e0247ae28b0bd35d155.mockapi.io/products/"+ id)
+        setProduct(response.data)
+    }
         fetchSingleProduct()
-    },[])
+    },[id])
 
 
   return (
