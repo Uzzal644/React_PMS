@@ -10,8 +10,6 @@ const EditProduct = () => {
     const [product, setProduct] = useState({})
 
 
-    
-
     //edit product
     const handleChange= (e)=>{
         const{name,value} = e.target
