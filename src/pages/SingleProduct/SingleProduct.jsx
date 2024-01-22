@@ -43,8 +43,8 @@ const SingleProduct = () => {
                     <h2 className='product-name'>{product.productName}</h2>
                     <p className='product-description'>{product.productDescription}</p>
                     <mark className='product-material'>{product.productMaterial}</mark> <br/>
-                    <button onClick={deleteProduct}>Delete</button>
-                    <button onClick={()=>navigate(`/editProduct/${product.id}`)}>Edit</button>
+                    <button className= "button" onClick={deleteProduct}>Delete</button> <br/> 
+                    <button className= "button" onClick={()=>navigate(`/editProduct/${product.id}`)}>Edit</button>
                 </div>
                 </>
 

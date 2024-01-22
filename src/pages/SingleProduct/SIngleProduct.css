@@ -28,3 +28,17 @@
     font-size: 1rem;
     color: #555;
 }
+
+
+.button {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
